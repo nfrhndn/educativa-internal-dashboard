@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educativa.id - Dashboard</title>
+  <link rel="icon" type="image/png" href="../assets/images/Logo-Educativa.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="sidebar-logo" href="dashboard.html" aria-label="educativa.id dashboard">
+        <img class="sidebar-logo-icon" src="../assets/images/Logo-Educativa.png" alt="">
+        <img class="sidebar-logo-word" src="../assets/images/Writing-Logo-Educativa.png" alt="educativa.id">
+      </a>
+      <nav class="sidebar-nav">
+        <a data-nav class="nav-item" href="dashboard.html"><img src="../assets/icons/icon-dashboard.svg" alt=""><span>Dashboard</span></a>
+        <a data-nav class="nav-item" href="kpi.html"><img src="../assets/icons/icon-kpi-tracker.svg" alt=""><span>KPI Tracker</span></a>
+        <a class="nav-item is-placeholder" href="#" aria-disabled="true"><img src="../assets/icons/icon-attendance.svg" alt=""><span>Attendance</span></a>
+        <a class="nav-item is-placeholder" href="#" aria-disabled="true"><img src="../assets/icons/icon-profile.svg" alt=""><span>Profile</span></a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-card">
+          <img class="user-avatar" src="../assets/images/woman-profile.png" alt="Herlina Adinda">
+          <div class="user-meta">
+            <div class="user-name">Herlina Adinda</div>
+            <div class="user-role">Graphic Design</div>
+          </div>
+          <button class="logout-btn" type="button" aria-label="Logout"><img src="../assets/icons/icon-logout.svg" alt=""></button>
+        </div>
+      </div>
+    </aside>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a data-nav href="dashboard.html"><img src="../assets/icons/icon-dashboard.svg" alt=""><span>Dashboard</span></a>
+      <a data-nav href="kpi.html"><img src="../assets/icons/icon-kpi-tracker.svg" alt=""><span>KPI</span></a>
+      <a href="#"><img src="../assets/icons/icon-attendance.svg" alt=""><span>Attendance</span></a>
+      <a href="#"><img src="../assets/icons/icon-profile.svg" alt=""><span>Profile</span></a>
+    </nav>
+
+    <main class="main-content">
+      <header class="top-header">
+        <a class="mobile-header-brand" href="dashboard.html" aria-label="educativa.id dashboard">
+          <img class="mobile-brand-icon" src="../assets/images/Logo-Educativa.png" alt="">
+          <img class="mobile-brand-word" src="../assets/images/Writing-Logo-Educativa.png" alt="educativa.id">
+        </a>
+        <h1 class="page-title">Performance System</h1>
+        <div class="header-actions">
+          <button class="icon-btn" type="button" aria-label="Notifications"><img src="../assets/icons/icon-notification.svg" alt=""></button>
+          <button class="icon-btn" type="button" aria-label="Calendar"><img src="../assets/icons/icons-calendar.svg" alt=""></button>
+          <button class="period-filter" type="button" data-period-trigger aria-haspopup="dialog" aria-expanded="false"><span>March 2026</span><img src="../assets/icons/icon-dropdown-calendar.svg" alt=""></button>
+        </div>
+      </header>
+
+      <div class="page-wrapper">
+        <div data-skeleton class="skeleton-grid">
+          <div class="skeleton-card" style="height: 230px"></div>
+          <div class="stats-grid">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+          <div class="dashboard-charts">
+            <div class="skeleton-card" style="height: 360px"></div>
+            <div class="skeleton-card" style="height: 360px"></div>
+          </div>
+        </div>
+
+        <div data-content class="hidden">
+          <section class="card greeting-banner" aria-labelledby="greeting-title">
+            <div>
+              <h2 id="greeting-title">Good to see you, Herlina!</h2>
+              <p>Ready to achieve more today?</p>
+            </div>
+            <img class="greeting-asset" src="../assets/images/hero-dashboard-assets.png" alt="">
+          </section>
+
+          <section class="stats-grid" aria-label="Performance summary">
+            <article class="card stat-card stat-card--kpi">
+              <div class="stat-head">
+                <span class="stat-title">KPI Score</span>
+                <span class="badge badge-primary">Excellent</span>
+              </div>
+              <div class="stat-value-row"><span class="stat-value">910</span><span class="stat-unit">/ 1000</span></div>
+              <div class="stat-foot"><span></span><a class="read-link" href="kpi.html">Read More <i class="fa-solid fa-chevron-right"></i></a></div>
+            </article>
+
+            <article class="card stat-card stat-card--attendance">
+              <div class="stat-head">
+                <span class="stat-title">Attendance</span>
+                <a class="read-link" href="#">Read More <i class="fa-solid fa-chevron-right"></i></a>
+              </div>
+              <div class="stat-value-row"><span class="stat-value">91%</span></div>
+              <div class="stat-foot"><span></span><span class="date-pill"><i class="fa-regular fa-calendar"></i> March 2026</span></div>
+            </article>
+
+            <article class="card stat-card stat-card--countdown">
+              <div class="stat-head">
+                <span class="stat-title">Countdown</span>
+                <span class="badge badge-primary">Upcoming</span>
+              </div>
+              <div class="stat-value-row">
+                <span class="stat-value">5</span>
+                <span class="countdown-copy"><strong>Days Left</strong><span>To Next Evaluation</span></span>
+              </div>
+              <div class="stat-foot"><span></span><span class="date-pill"><i class="fa-regular fa-clock"></i> 04/15/2026</span></div>
+            </article>
+          </section>
+
+          <section class="dashboard-charts">
+            <article class="card panel trend-panel">
+              <h2 class="section-title">Monthly KPI Score vs Attendance Score</h2>
+              <div class="chart-box"><canvas id="trendChart"></canvas></div>
+            </article>
+
+            <article class="card panel evaluation-panel">
+              <h2 class="section-title">Evaluation Breakdown</h2>
+              <div class="chart-box evaluation-chart-box"><canvas id="dashboardRadar"></canvas></div>
+              <div class="breakdown-list">
+                <div class="metric-row">
+                  <div class="metric-label"><span>Initiative</span><span>80%</span></div>
+                  <div class="progress-track" style="--value: 80%" data-tooltip="4.0 dari 5 bintang"><div class="progress-fill"></div></div>
+                </div>
+                <div class="metric-row">
+                  <div class="metric-label"><span>Communication</span><span>70%</span></div>
+                  <div class="progress-track" style="--value: 70%" data-tooltip="3.5 dari 5 bintang"><div class="progress-fill"></div></div>
+                </div>
+                <div class="metric-row">
+                  <div class="metric-label"><span>Responsibility</span><span>90%</span></div>
+                  <div class="progress-track" style="--value: 90%" data-tooltip="4.5 dari 5 bintang"><div class="progress-fill"></div></div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="card mentor-note">
+            <h2 class="mentor-note-title">Recent Mentor Note</h2>
+            <a class="mentor-more" href="#">See Other Notes</a>
+            <div class="mentor-note-body">
+              <img src="../assets/images/woman-mentor-1.png" alt="Amanda Azzura">
+              <div>
+                <div class="mentor-name">Amanda Azzura</div>
+                <blockquote>"Halo Herlina, aku senang banget bisa lihat progress kamu yang keren banget selama ini! Kamu termasuk intern yang berkembang paling pesat dalam satu bulan ini. Tetap semangat ya, keep up your great work!"</blockquote>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
