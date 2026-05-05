@@ -12,7 +12,20 @@ function initPeriodPicker() {
   const actionGroup = trigger?.closest(".header-actions");
   if (!trigger || !actionGroup) return;
 
-  const monthNames = ["January", "February", "March", "April", "May", "June"];
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
   const years = [2024, 2025, 2026];
   const saved = parseSavedPeriod(getStoredPeriod());
   const triggerLabel = trigger.querySelector("span");
