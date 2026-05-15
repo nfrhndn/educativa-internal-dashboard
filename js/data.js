@@ -68,5 +68,47 @@ const APP_DATA = {
         stepSize: 5
       }
     }
+  },
+  attendance: {
+    overview: {
+      score: 91,
+      totalDays: 22,
+      present: 20,
+      permission: 1,
+      absent: 1
+    },
+    trend: {
+      labels: ["Jan", "Feb", "March", "April"],
+      score: [4.8, 4.3, 4.5, 3.7]
+    },
+    evaluation: {
+      lastScore: 4.3,
+      currentScore: 4.5,
+      improvement: 0.2,
+      skills: [
+        {
+          label: "Initiative",
+          description: "Ability to take initiative and act proactively",
+          score: 4.5,
+          icon: "../assets/icons/attendance-page/icon-initiative.svg"
+        },
+        {
+          label: "Communication",
+          description: "Ability to communicate ideas clearly",
+          score: 4.3,
+          icon: "../assets/icons/attendance-page/icon-communication.svg"
+        },
+        {
+          label: "Responsibility",
+          description: "Responsibility toward tasks and commitments",
+          score: 4.8,
+          icon: "../assets/icons/attendance-page/icon-responsibility.svg"
+        }
+      ]
+    },
+    report: {
+      fileName: "March Recap Report.pdf",
+      generatedAt: "Generated on Apr 1, 2026 • 11.30 AM"
+    }
   }
 };

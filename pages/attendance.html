@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educativa.id - Attendance</title>
+  <link rel="icon" type="image/png" href="../assets/images/Logo-Educativa.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="sidebar-logo" href="dashboard.html" aria-label="educativa.id dashboard">
+        <img class="sidebar-logo-icon" src="../assets/images/Logo-Educativa.png" alt="">
+        <img class="sidebar-logo-word" src="../assets/images/Writing-Logo-Educativa.png" alt="educativa.id">
+      </a>
+      <nav class="sidebar-nav">
+        <a data-nav class="nav-item" href="dashboard.html"><img src="../assets/icons/icon-dashboard.svg" alt=""><span>Dashboard</span></a>
+        <a data-nav class="nav-item" href="kpi.html"><img src="../assets/icons/icon-kpi-tracker.svg" alt=""><span>KPI Tracker</span></a>
+        <a data-nav class="nav-item" href="attendance.html"><img src="../assets/icons/icon-attendance.svg" alt=""><span>Attendance</span></a>
+        <a class="nav-item is-placeholder" href="#" aria-disabled="true"><img src="../assets/icons/icon-profile.svg" alt=""><span>Profile</span></a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-card">
+          <img class="user-avatar" src="../assets/images/woman-profile.png" alt="Herlina Adinda">
+          <div class="user-meta"><div class="user-name">Herlina Adinda</div><div class="user-role">Graphic Design</div></div>
+          <button class="logout-btn" type="button" aria-label="Logout"><img src="../assets/icons/icon-logout.svg" alt=""></button>
+        </div>
+      </div>
+    </aside>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a data-nav href="dashboard.html"><img src="../assets/icons/icon-dashboard.svg" alt=""><span>Dashboard</span></a>
+      <a data-nav href="kpi.html"><img src="../assets/icons/icon-kpi-tracker.svg" alt=""><span>KPI</span></a>
+      <a data-nav href="attendance.html"><img src="../assets/icons/icon-attendance.svg" alt=""><span>Attendance</span></a>
+      <a href="#"><img src="../assets/icons/icon-profile.svg" alt=""><span>Profile</span></a>
+    </nav>
+
+    <main class="main-content">
+      <header class="top-header">
+        <a class="mobile-header-brand" href="dashboard.html" aria-label="educativa.id dashboard">
+          <img class="mobile-brand-icon" src="../assets/images/Logo-Educativa.png" alt="">
+          <img class="mobile-brand-word" src="../assets/images/Writing-Logo-Educativa.png" alt="educativa.id">
+        </a>
+        <h1 class="page-title">Performance System</h1>
+        <div class="header-actions">
+          <button class="icon-btn" type="button" aria-label="Notifications"><img src="../assets/icons/icon-notification.svg" alt=""></button>
+          <button class="icon-btn" type="button" aria-label="Calendar"><img src="../assets/icons/icons-calendar.svg" alt=""></button>
+          <button class="period-filter" type="button" data-period-trigger aria-haspopup="dialog" aria-expanded="false"><span>March 2026</span><img src="../assets/icons/icon-dropdown-calendar.svg" alt=""></button>
+        </div>
+      </header>
+
+      <div class="page-wrapper attendance-page">
+        <section class="card attendance-hero-section" aria-labelledby="attendance-overview-title">
+          <div class="attendance-overview-grid">
+            <div class="attendance-overview-card">
+              <h2 id="attendance-overview-title">Attendance Overview</h2>
+              <div class="attendance-overview-body">
+                <div class="attendance-ring">
+                  <canvas id="attendanceDonut"></canvas>
+                  <div class="attendance-ring-center">
+                    <strong>91%</strong>
+                    <span>ATTENDANCE</span>
+                  </div>
+                </div>
+                <div class="attendance-summary">
+                  <h3>Total Attendance</h3>
+                  <div class="attendance-total">22 days</div>
+                  <dl class="attendance-legend">
+                    <div><dt><span class="legend-dot legend-dot--present"></span>Present</dt><dd>20 days</dd></div>
+                    <div><dt><span class="legend-dot legend-dot--permission"></span>Permission</dt><dd>1 day</dd></div>
+                    <div><dt><span class="legend-dot legend-dot--absent"></span>Absent</dt><dd>1 day</dd></div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <article class="card attendance-trend-card" aria-labelledby="attendance-trend-title">
+              <h3 id="attendance-trend-title">Monthly Performance Trend</h3>
+              <div class="attendance-chart-box">
+                <canvas id="attendanceTrendChart"></canvas>
+              </div>
+            </article>
+          </div>
+
+          <div class="attendance-score-ribbon" aria-label="Evaluation score summary">
+            <div class="score-ribbon-item score-ribbon-item--last">
+              <span class="score-ribbon-icon"><img src="../assets/icons/attendance-page/icon-last-evaluation-score.svg" alt=""></span>
+              <div>
+                <span class="score-label">Last Evaluation Score</span>
+                <strong>4.3 <small>/ 5.0</small></strong>
+              </div>
+            </div>
+            <div class="score-ribbon-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right-long"></i></div>
+            <div class="score-ribbon-item">
+              <div>
+                <span class="score-label">Current Score</span>
+                <strong>4.5 <small>/ 5.0</small></strong>
+              </div>
+            </div>
+            <div class="score-ribbon-divider" aria-hidden="true"></div>
+            <div class="score-improvement-pill">
+              <img src="../assets/icons/attendance-page/icon-score-improvement.svg" alt="">
+              <div>
+                <strong>+0.2 Score Improvement</strong>
+                <span>Compared to previous evaluation</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="attendance-content-grid">
+          <section class="card skill-evaluation-card" aria-labelledby="skill-evaluation-title">
+            <div class="skill-evaluation-head">
+              <div>
+                <span>Last Evaluation Score</span>
+                <h2 id="skill-evaluation-title">Skill Evaluation</h2>
+              </div>
+              <div class="average-score">
+                <span>Average Score</span>
+                <strong>4.5 <small>/ 5.0</small></strong>
+              </div>
+            </div>
+
+            <div class="skill-list">
+              <article class="skill-row">
+                <div class="skill-icon"><img src="../assets/icons/attendance-page/icon-initiative.svg" alt=""></div>
+                <div class="skill-copy">
+                  <h3>Initiative</h3>
+                  <p>Ability to take initiative and act proactively</p>
+                </div>
+                <div class="skill-progress">
+                  <span>4.5 / 5.0</span>
+                  <div class="progress-track" style="--value: 90%" data-tooltip="4.5 out of 5.0 stars"><div class="progress-fill"></div></div>
+                </div>
+              </article>
+
+              <article class="skill-row">
+                <div class="skill-icon"><img src="../assets/icons/attendance-page/icon-communication.svg" alt=""></div>
+                <div class="skill-copy">
+                  <h3>Communication</h3>
+                  <p>Ability to communicate ideas clearly</p>
+                </div>
+                <div class="skill-progress">
+                  <span>4.3 / 5.0</span>
+                  <div class="progress-track" style="--value: 86%" data-tooltip="4.3 out of 5.0 stars"><div class="progress-fill"></div></div>
+                </div>
+              </article>
+
+              <article class="skill-row">
+                <div class="skill-icon"><img src="../assets/icons/attendance-page/icon-responsibility.svg" alt=""></div>
+                <div class="skill-copy">
+                  <h3>Responsibility</h3>
+                  <p>Responsibility toward tasks and commitments</p>
+                </div>
+                <div class="skill-progress">
+                  <span>4.8 / 5.0</span>
+                  <div class="progress-track" style="--value: 96%" data-tooltip="4.8 out of 5.0 stars"><div class="progress-fill"></div></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="attendance-side-panel" aria-label="Mentor and report">
+            <section class="card mentor-evaluation-card" aria-labelledby="mentor-evaluation-title">
+              <img class="quote-mark" src="../assets/icons/attendance-page/icon-mentor-evaluation.svg" alt="">
+              <h2 id="mentor-evaluation-title">Mentor Evaluation</h2>
+              <div class="mentor-profile">
+                <img src="../assets/images/woman-mentor-1.png" alt="Amanda Azzura">
+                <div>
+                  <strong>Amanda Azzura</strong>
+                  <span>Mentor</span>
+                </div>
+              </div>
+              <blockquote>"Halo Herlina, aku senang banget bisa lihat progress kamu yang keren banget selama ini! Kamu termasuk intern yang berkembang paling pesat dalam satu bulan ini lohh. Tetap semangat yaaa, keep up your greet work!"</blockquote>
+            </section>
+
+            <section class="card report-card" aria-labelledby="report-title">
+              <span class="report-icon"><img src="../assets/icons/attendance-page/icon-report.svg" alt=""></span>
+              <div>
+                <h2 id="report-title">March Recap Report.pdf</h2>
+                <p>Generated on Apr 1, 2026 - 11.30 AM</p>
+              </div>
+              <button class="btn btn-primary report-download-btn" type="button">Download</button>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/attendance.js"></script>
+</body>
+</html>
