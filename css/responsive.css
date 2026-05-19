@@ -1040,65 +1040,123 @@
 
   .bottom-nav {
     display: flex;
-    left: 12px;
-    right: 12px;
+    left: 50%;
+    right: auto;
     bottom: 16px;
-    height: 50px;
+    --notch-x: 12.5%;
+    width: calc(100vw - 20px);
+    max-width: 440px;
+    height: 58px;
+    align-items: flex-end;
     justify-content: space-around;
-    padding: 6px 12px;
+    overflow: visible;
+    padding: 0 14px 8px;
+    background: transparent;
+    border: 0;
+    border-radius: 15px;
+    box-shadow: none;
+    transform: translateX(-50%);
+  }
+
+  .bottom-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--white);
     border: 1px solid rgba(0, 128, 128, 0.22);
-    border-radius: 12px;
+    border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 128, 128, 0.16);
+    -webkit-mask: radial-gradient(circle 42px at var(--notch-x) 0, transparent 0 38px, #000 39px);
+    mask: radial-gradient(circle 42px at var(--notch-x) 0, transparent 0 38px, #000 39px);
+  }
+
+  .bottom-nav:has(a:nth-child(1).active) {
+    --notch-x: calc(14px + (100% - 28px) * 0.125);
+  }
+
+  .bottom-nav:has(a:nth-child(2).active) {
+    --notch-x: calc(14px + (100% - 28px) * 0.375);
+  }
+
+  .bottom-nav:has(a:nth-child(3).active) {
+    --notch-x: calc(14px + (100% - 28px) * 0.625);
+  }
+
+  .bottom-nav:has(a:nth-child(4).active) {
+    --notch-x: calc(14px + (100% - 28px) * 0.875);
   }
 
   .bottom-nav a {
     position: relative;
+    isolation: isolate;
+    z-index: 1;
+    height: 48px;
     min-width: 0;
     flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
     gap: 3px;
+    padding-bottom: 1px;
+    color: var(--primary);
     font-size: 9px;
+    line-height: 1;
   }
 
   .bottom-nav i,
   .bottom-nav img {
     width: 28px;
-    height: 24px;
-    display: grid;
-    place-items: center;
+    height: 28px;
+    display: block;
+    margin-bottom: 1px;
     font-size: 18px;
     object-fit: contain;
-    transform: scale(1.18);
+    transform: none;
     transition: transform var(--transition), color var(--transition), background-color var(--transition);
   }
 
   .bottom-nav a.active::before {
+    display: none;
+  }
+
+  .bottom-nav a.active::after {
     content: "";
     position: absolute;
-    top: -26px;
+    top: -39px;
     left: 50%;
-    width: 44px;
-    height: 44px;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
     background: var(--primary);
-    border: 5px solid rgba(230, 244, 241, 0.96);
+    border: 0;
     border-radius: 999px;
-    box-shadow: 0 6px 14px rgba(0, 128, 128, 0.2);
+    box-shadow: none;
     transform: translateX(-50%);
   }
 
   .bottom-nav a.active i,
   .bottom-nav a.active img {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: -33px;
+    left: 50%;
+    z-index: 2;
     width: 44px;
     height: 44px;
-    margin-top: -24px;
-    padding: 6px;
+    margin: 0;
+    padding: 0;
     color: var(--white);
-    transform: none;
+    transform: translateX(-50%);
   }
 
   .bottom-nav a.active img {
     filter: brightness(0) invert(1);
+  }
+
+  .bottom-nav a span {
+    position: relative;
+    z-index: 2;
   }
 
   .greeting-banner {

@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  renderNavigation();
+
   const currentPage = window.location.pathname.split("/").pop() || "dashboard.html";
   document.querySelectorAll("[data-nav]").forEach((item) => {
     item.classList.toggle("active", item.getAttribute("href") === currentPage);
@@ -6,6 +8,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initPeriodPicker();
 });
+
+const navItems = [
+  {
+    href: "dashboard.html",
+    label: "Dashboard",
+    icon: "../assets/icons/icon-dashboard.svg"
+  },
+  {
+    href: "kpi.html",
+    label: "KPI Tracker",
+    icon: "../assets/icons/icon-kpi-tracker.svg"
+  },
+  {
+    href: "attendance.html",
+    label: "Attendance",
+    icon: "../assets/icons/icon-attendance.svg"
+  },
+  {
+    href: "profile.html",
+    label: "Profile",
+    icon: "../assets/icons/icon-profile.svg"
+  }
+];
+
+function renderNavigation() {
+  renderSidebar();
+  renderBottomNav();
+}
+
+function renderSidebar() {
+  const target = document.querySelector("[data-sidebar]");
+  if (!target) return;
+
+  const navLinks = navItems
+    .map((item) => `<a data-nav class="nav-item" href="${item.href}"><img src="${item.icon}" alt=""><span>${item.label}</span></a>`)
+    .join("");
+
+  target.outerHTML = `
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="sidebar-logo" href="dashboard.html" aria-label="educativa.id dashboard">
+        <img class="sidebar-logo-icon" src="../assets/images/Logo-Educativa.png" alt="">
+        <img class="sidebar-logo-word" src="../assets/images/Writing-Logo-Educativa.png" alt="educativa.id">
+      </a>
+      <nav class="sidebar-nav">
+        ${navLinks}
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-card">
+          <img class="user-avatar" src="../assets/images/woman-profile.png" alt="Herlina Adinda">
+          <div class="user-meta">
+            <div class="user-name">Herlina Adinda</div>
+            <div class="user-role">Graphic Design</div>
+          </div>
+          <button class="logout-btn" type="button" aria-label="Logout"><img src="../assets/icons/icon-logout.svg" alt=""></button>
+        </div>
+      </div>
+    </aside>
+  `;
+}
+
+function renderBottomNav() {
+  const target = document.querySelector("[data-bottom-nav]");
+  if (!target) return;
+
+  const navLinks = navItems
+    .map((item) => `<a data-nav href="${item.href}"><img src="${item.icon}" alt=""><span>${item.label}</span></a>`)
+    .join("");
+
+  target.outerHTML = `
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      ${navLinks}
+    </nav>
+  `;
+}
 
 function initPeriodPicker() {
   const trigger = document.querySelector("[data-period-trigger]");
